@@ -50,7 +50,7 @@ class conn(object):
             'cpanel_jsonapi_apiversion': version,
         }
         if params is not None:
-            params = dict(generic.items() + params.items())
+            params = dict(generic.items() | params.items())
         elif params is None:
             params = generic
         r = self.__session__.get(self.hostname + api, params=params, verify=self.verify)
